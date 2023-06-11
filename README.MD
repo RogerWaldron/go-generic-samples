@@ -2,7 +2,7 @@
 
 example use cases where Generics are beneficial
 
-snippets taken from articles are referenced below
+snippets which are taken from articles are referenced below
 
 ## Go 1.18 introduced support for Generics
 
@@ -52,3 +52,5 @@ snippets taken from articles are referenced below
 
 https://blog.streamelements.com/an-introduction-to-generics-in-go-cc8cdae15ef2?gi=61fe8543b909
 https://michaelwhatcott.com/go-generics-in-practice/
+https://chrisfrew.in/blog/golang-a-powerful-generic-function-to-make-http-requests/
+https://bitfieldconsulting.com/golang/generic-set
