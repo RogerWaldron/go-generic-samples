@@ -9,9 +9,36 @@ import (
 	"strings"
 )
 
+type HTTPMethod int
+
+const (
+	GET HTTPMethod = iota
+	POST
+	PUT
+	PATCH
+	DELETE
+)
+
+func (s HTTPMethod) String() string {
+	switch s {
+	case GET:
+		return "GET"
+	case POST:
+		return "POST"
+	case PUT:
+		return "PUT"
+	case PATCH:
+		return "PATCH"
+	case DELETE:
+		return "DELETE"
+	}
+
+	return "unknown"
+}
+
 func MakeHTTPRequest[T any](
 	fullUrl string,
-	httpMethod string,
+	httpMethod HTTPMethod,
 	headers map[string]string,
 	queryParameters url.Values,
 	body io.Reader,
@@ -24,7 +51,7 @@ func MakeHTTPRequest[T any](
 		}
 
 		// append query params
-		if httpMethod == "GET" {
+		if httpMethod == GET {
 			query := parsedUrl.Query()
 
 			for k, v := range queryParameters {
@@ -34,7 +61,7 @@ func MakeHTTPRequest[T any](
 			parsedUrl.RawQuery = query.Encode()
 		}
 
-		req, err := http.NewRequest(httpMethod, parsedUrl.String(), body)
+		req, err := http.NewRequest(string(httpMethod), parsedUrl.String(), body)
 		if err != nil {
 			return responseType, err
 		}
@@ -85,7 +112,7 @@ func main() {
 	}
 	queryParameters := url.Values{}
 	var response map[string]interface{}
-	response, err := MakeHTTPRequest(requestUrl, "GET", headers, queryParameters, nil, response)
+	response, err := MakeHTTPRequest(requestUrl, GET, headers, queryParameters, nil, response)
 	if err != nil {
 		panic(err)
 	}
