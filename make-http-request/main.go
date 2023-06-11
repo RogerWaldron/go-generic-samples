@@ -79,13 +79,13 @@ func MakeHTTPRequest[T any](
 }
 
 func main() {
-	url := "https://api.github.com/users/rogerwaldron"
+	requestUrl := "https://api.github.com/users/rogerwaldron"
 	headers := map[string]string {
 		"Accept": "application/json",
 	}
 	queryParameters := url.Values{}
 	var response map[string]interface{}
-	response, err := MakeHTTPRequest(url, "GET", headers, queryParameters, nil, response)
+	response, err := MakeHTTPRequest(requestUrl, "GET", headers, queryParameters, nil, response)
 	if err != nil {
 		panic(err)
 	}
