@@ -51,6 +51,9 @@ snippets which are taken from articles are referenced below
 ### Snippet References
 
 https://blog.streamelements.com/an-introduction-to-generics-in-go-cc8cdae15ef2?gi=61fe8543b909
+
 https://michaelwhatcott.com/go-generics-in-practice/
+
 https://chrisfrew.in/blog/golang-a-powerful-generic-function-to-make-http-requests/
+
 https://bitfieldconsulting.com/golang/generic-set
