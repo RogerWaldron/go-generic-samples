@@ -1,4 +1,4 @@
-# Useful Generic Examples
+# Useful Real World Generic Examples
 
 example use cases where Generics are beneficial
 
